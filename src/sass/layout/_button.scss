@@ -1,0 +1,17 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.button.is-primary {
+    border-radius: 0;
+    border: 3px solid black;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    box-shadow: 5px 5px 0 0 #000;
+
+    &:hover, &:active, &:focus {
+        background-color: $color-yellow;
+        color: #000;
+        border: 3px solid black;
+    }
+}

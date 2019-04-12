@@ -1,0 +1,21 @@
+.input {
+    background-color: #000;
+    border-radius: 0;
+    color: $color-yellow;
+    text-shadow: 0 1px black;
+
+    margin: 0;
+    padding: 6px 8px 6px 10px;
+    height: 36px;
+    line-height: 14px;
+    font-size: 116%;
+    font-weight: bold;
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    display: inline-block;
+
+    &::placeholder {
+        color: rgba($color-yellow, 0.5);
+    }
+}

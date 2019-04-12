@@ -1,0 +1,15 @@
+// -----------------------------------------------------------------------------
+// When having several themes, this file contains everything related to the
+// default one.
+// -----------------------------------------------------------------------------
+body {
+    background-image: url('assets/background.png');
+    background-size: cover;
+    background-position: center center;
+}
+#app {
+    min-height: 100vh;
+}
+a, p, span, div {
+    font-family: "メイリオ","Meiryo","Osaka","ＭＳ Ｐゴシック","MS P Gothic",Verdana,Helvetica,sans-serif;
+}
