@@ -1,0 +1,39 @@
+.HeroDetail {
+    display: inline-flex;
+    flex-direction: column;
+    border-radius: 0;
+    border: 3px solid black;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding: 0;
+    margin: 24px 0;
+
+    @include e('image') {
+        width: 250px;
+        height: 250px;
+        background-size: cover;
+        margin-bottom: 12px;
+        border-bottom: 3px solid black;
+    }
+    @include e('name') {
+        margin-bottom: 24px;
+    }
+    @include e('wrapper') {
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+    }
+
+    @include e('background') {
+        background-image: linear-gradient(45deg, #666 25%, transparent 25%), 
+        linear-gradient(-45deg, #666 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #666 75%), 
+        linear-gradient(-45deg, transparent 75%, #666 75%);
+        -moz-background-size: 2px 2px;
+        background-size: 2px 2px;
+        -webkit-background-size: 2px 2.1px; /* override value for webkit */
+        background-position: 0 0, 1px 0, 1px -1px, 0px 1px;
+        background-color: $color-cyan;
+    }
+}

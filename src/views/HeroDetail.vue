@@ -1,16 +1,16 @@
 <template>
     <div class="page-hero-detail">
-        <pre>{{hero}}</pre>
+        <HeroDetail :hero="hero"/>
     </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-import Hero from '@/components/Hero'
+import HeroDetail from '@/components/HeroDetail'
 
 export default {
   components: {
-    Hero
+    HeroDetail
   },
   data () {
     return {
