@@ -47,6 +47,10 @@ export default new Vuex.Store({
       let response = await axios.post('auth/login', credentials)
       commit('setAuthorization', response.headers)
       commit('setUser', response.data)
+    },
+    async register (_, { credentials }) {
+      let response = await axios.post('auth/register', credentials)
+      return response
     }
   }
 })

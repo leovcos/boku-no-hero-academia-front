@@ -4,7 +4,7 @@
       <img src="@/assets/logo_boku_academia.png"/>
     </div>
     <FormRegister/>
-    <router-link to="/" class="button is-primary">Entrar</router-link>
+    <router-link to="/" class="button is-primary">Já tenho uma conta</router-link>
   </div>
 </template>
 

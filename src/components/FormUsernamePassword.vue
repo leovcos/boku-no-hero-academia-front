@@ -12,16 +12,26 @@
     </div>
     <div class="field">
       <p class="control">
-        <button type="submit" class="button is-primary">ログイン</button>
+        <button type="submit" class="button is-primary">{{label}}</button>
       </p>
     </div>
-    <div class="message" v-if="state.errorMessage">{{state.errorMessage}}</div>
+    <div class="message" v-if="error">{{error}}</div>
   </form>
 </template>
 
 <script>
 
 export default {
+  props: {
+    error: {
+      type: null,
+      default: ''
+    },
+    label: {
+      type: String,
+      default: 'Entrar'
+    }
+  },
   data () {
     return {
       state: {

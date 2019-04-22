@@ -1,5 +1,5 @@
 <template>
-  <FormUsernamePassword @submit="authUser" :error="state.errorMessage"/>
+  <FormUsernamePassword label="Registrar" @submit="authUser" :error="state.errorMessage"/>
 </template>
 
 <script>
@@ -18,16 +18,17 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['login']),
+    ...mapActions(['register', 'login']),
     async authUser (model) {
       this.state.errorMessage = false
 
       try {
+        await this.register({ credentials: model })
         await this.login({ credentials: model })
         this.$router.push({ name: 'heroList' })
       } catch (error) {
-        if (error.data) {
-          this.state.errorMessage = error.data.message
+        if (error.response) {
+          this.state.errorMessage = error.response.data.message
           return
         }
         this.state.errorMessage = error.message
