@@ -4,6 +4,7 @@
       <img src="@/assets/logo_boku_academia.png"/>
     </div>
     <FormLogin/>
+    <router-link to="/cadastrar" class="button is-primary page-home-register">Cadastrar</router-link>
   </div>
 </template>
 

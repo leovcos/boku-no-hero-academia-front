@@ -17,6 +17,10 @@ export default new Vuex.Store({
   },
   mutations: {
     setAuthorization (state, { token }) {
+      if (!token) {
+        axios.defaults.headers.common = {}
+        return
+      }
       axios.defaults.headers.common = { 'Authorization': `Bearer ${token}` }
     },
     setUser (state, { user }) {
@@ -27,6 +31,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    async logoff ({ commit }) {
+      commit('setAuthorization', { token: null })
+      commit('setUser', { user: {} })
+    },
     async loadHeros ({ commit }, { page = 1 } = { page: 0 }) {
       let params = {}
       if (params > 0) {

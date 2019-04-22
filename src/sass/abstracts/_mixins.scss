@@ -32,3 +32,14 @@
   }
 }
 
+@mixin e($context) {
+  &__#{$context} {
+    @content;
+  }
+}
+
+@mixin m($context) {
+  &--#{$context} {
+    @content;
+  }
+}

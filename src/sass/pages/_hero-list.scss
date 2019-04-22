@@ -1,0 +1,17 @@
+.page-hero-list {
+    background-color: rgba(#000, 0.7);
+    background-image: url('assets/bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+
+    @include e('nav') {
+        padding: 24px;
+    }
+    @include e('list') {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}

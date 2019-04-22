@@ -27,11 +27,14 @@
 
 // 5. Components
 @import
+  'components/Hero',
   'components/FormLogin';
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/home',
+  'pages/hero-list',
+  'pages/register';
 
 // 7. Themes
 @import

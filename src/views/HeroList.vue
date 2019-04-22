@@ -1,14 +1,23 @@
 <template>
-    <div>
-        <h1>Lista de heróiss</h1>
-        <pre>Page: {{page}}</pre>
+    <div class="page-hero-list">
+        <nav class="page-hero-list__nav">
+          <a class="button is-primary is-warning" @click="doLogoff">ログオフ</a>
+        </nav>
+
+        <div class="page-hero-list__list">
+          <Hero v-for="(hero, index) in page.content" :key="index" :hero="hero"/>
+        </div>
     </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import Hero from '@/components/Hero'
 
 export default {
+  components: {
+    Hero
+  },
   mounted () {
     this.loadHeros({ page: 1 })
   },
@@ -18,7 +27,11 @@ export default {
     })
   },
   methods: {
-    ...mapActions(['loadHeros'])
+    ...mapActions(['loadHeros', 'logoff']),
+    async doLogoff () {
+      await this.logoff()
+      this.$router.push({ name: 'home' })
+    }
   }
 }
 </script>
