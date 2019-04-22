@@ -6,7 +6,9 @@
             <div class="Hero__name">
                 {{hero.name}}
             </div>
-            <a class="button is-primary">詳細</a>
+            <router-link class="button is-primary" :to="{name: 'heroDetail', params: {id: hero.id}}">
+                Ver
+            </router-link>
         </div>
     </div>
 </template>

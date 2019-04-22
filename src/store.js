@@ -35,6 +35,10 @@ export default new Vuex.Store({
       commit('setAuthorization', { token: null })
       commit('setUser', { user: {} })
     },
+    async requestHero (_, { id }) {
+      let response = await axios.get(`hero/get/${id}`)
+      return response.data
+    },
     async loadHeros ({ commit }, { page = 1 } = { page: 0 }) {
       let params = {}
       if (params > 0) {

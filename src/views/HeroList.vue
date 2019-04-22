@@ -1,7 +1,7 @@
 <template>
     <div class="page-hero-list">
         <nav class="page-hero-list__nav">
-          <a class="button is-primary is-warning" @click="doLogoff">ログオフ</a>
+          <a class="button is-primary is-warning" @click="doLogoff">Sair</a>
         </nav>
 
         <div class="page-hero-list__list">
