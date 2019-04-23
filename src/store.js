@@ -22,8 +22,10 @@ export default new Vuex.Store({
         return
       }
       axios.defaults.headers.common = { 'Authorization': `Bearer ${token}` }
+      localStorage.setItem('jwt', token)
     },
     setUser (state, { user }) {
+      localStorage.setItem('user', JSON.stringify(user))
       state.user = user
     },
     setHeroPage (state, page) {
@@ -50,7 +52,7 @@ export default new Vuex.Store({
     async login ({ commit }, { credentials }) {
       let response = await axios.post('auth/login', credentials)
       commit('setAuthorization', response.headers)
-      commit('setUser', response.data)
+      commit('setUser', { user: response.data })
     },
     async register (_, { credentials }) {
       let response = await axios.post('auth/register', credentials)

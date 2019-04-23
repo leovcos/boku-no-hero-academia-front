@@ -36,12 +36,14 @@
         -webkit-background-size: 2px 2.1px; /* override value for webkit */
         background-position: 0 0, 1px 0, 1px -1px, 0px 1px;
         background-color: $color-cyan;
+        pointer-events: none;
 
         img {
             position: absolute;
             top: -25%;
             left: -25%;
             width: 400px;
+            pointer-events: none;
         }
     }
 }

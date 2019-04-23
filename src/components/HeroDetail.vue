@@ -13,7 +13,7 @@
                 {{hero.birthday | date}}
             </div>
             <div class="HeroDetail__quirk">
-                {{hero.quirk.name}}
+                {{hero.quirk | quirkName}}
             </div>
         </div>
     </div>
@@ -35,6 +35,12 @@ export default {
       }
       val = new Date(val)
       return `${val.getDate()}/${val.getMonth() + 1}/${val.getFullYear()}`
+    },
+    quirkName (quirk) {
+      if (!quirk) {
+        return ''
+      }
+      return quirk.name
     }
   }
 }
