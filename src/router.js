@@ -74,6 +74,9 @@ router.beforeEach((to, from, next) => {
       } catch (e) {
         console.log(e)
       }
+      if (user.username) {
+        store.commit('setUser', { user })
+      }
       if (to.matched.some(record => record.meta && record.meta.onlyAdmin)) {
         let isAdmin = (user.authorities || []).filter(auth => {
           return auth && auth.authority === 'ADMIN'

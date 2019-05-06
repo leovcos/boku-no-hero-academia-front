@@ -67,6 +67,7 @@ export default {
     async deleteHero () {
       try {
         await this.storeDeleteHero({ id: this.$route.params.id })
+        this.$router.push({ name: 'heroList' })
       } catch (error) {
         this.error = error.message
         this.$router.push({ name: 'forbidden' })

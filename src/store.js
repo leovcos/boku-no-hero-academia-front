@@ -14,7 +14,13 @@ export default new Vuex.Store({
   },
   getters: {
     getHeroPage: state => state.heroPage,
-    getUser: state => state.user
+    getUser: state => state.user,
+    userHasAdminAuthority: state =>
+      state.user &&
+      state.user.authorities &&
+      state.user.authorities.filter(auth => {
+        return auth.authority === 'ADMIN'
+      }).length > 0
   },
   mutations: {
     setAuthorization (state, { token }) {
