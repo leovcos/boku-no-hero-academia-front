@@ -2,6 +2,7 @@
     <div class="page-hero-list">
         <nav class="page-hero-list__nav">
           <a class="button is-primary is-warning" @click="doLogoff">Sair</a>
+          <router-link class="button is-primary" :to="{name: 'admin'}">Admin</router-link>
         </nav>
 
         <div class="page-hero-list__list">

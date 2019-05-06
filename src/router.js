@@ -53,7 +53,6 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta && record.meta.requiresAuth)) {
-    console.log(store.commit)
     if (localStorage.getItem('jwt') == null) {
       setTimeout(() => {
         next({
@@ -70,7 +69,11 @@ router.beforeEach((to, from, next) => {
         console.log(e)
       }
       if (to.matched.some(record => record.meta && record.meta.onlyAdmin)) {
-        if (user.isAdmin === 1) {
+        let isAdmin = (user.authorities || []).filter(auth => {
+          return auth && auth.authority === 'ADMIN'
+        }).length > 0
+
+        if (isAdmin) {
           next()
         } else {
           next({ name: 'heroList' })

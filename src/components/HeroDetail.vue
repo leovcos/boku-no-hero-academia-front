@@ -15,11 +15,18 @@
             <div class="HeroDetail__quirk">
                 {{hero.quirk | quirkName}}
             </div>
+            <a class="button is-danger" @click="deleteHero">
+                Excluir
+            </a>
+            <div class="message is-danger" v-if="error">
+              {{error}}
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -41,6 +48,29 @@ export default {
         return ''
       }
       return quirk.name
+    }
+  },
+  computed: {
+    ...mapGetters({
+      user: 'getUser'
+    })
+  },
+  data () {
+    return {
+      error: ''
+    }
+  },
+  methods: {
+    ...mapActions({
+      storeDeleteHero: 'deleteHero'
+    }),
+    async deleteHero () {
+      try {
+        await this.storeDeleteHero({ id: this.$route.params.id })
+        this.$router.push({ name: 'heroList' })
+      } catch (error) {
+        this.error = error.message
+      }
     }
   }
 }

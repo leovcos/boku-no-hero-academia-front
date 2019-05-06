@@ -13,7 +13,8 @@ export default new Vuex.Store({
     heroPage: {}
   },
   getters: {
-    getHeroPage: state => state.heroPage
+    getHeroPage: state => state.heroPage,
+    getUser: state => state.user
   },
   mutations: {
     setAuthorization (state, { token }) {
@@ -57,6 +58,30 @@ export default new Vuex.Store({
     async register (_, { credentials }) {
       let response = await axios.post('auth/register', credentials)
       return response
+    },
+    async addHero (_, { hero }) {
+      let response = null
+      try {
+        response = await axios.post('hero/create', hero)
+      } catch (error) {
+        if (error.response && error.response.data && error.response.data.message) {
+          throw new Error(error.response.data.message)
+        }
+        throw error
+      }
+      return response.data
+    },
+    async deleteHero (_, { id }) {
+      let response = null
+      try {
+        response = await axios.delete(`hero/delete/${id}`)
+      } catch (error) {
+        if (error.response && error.response.data && error.response.data.message) {
+          throw new Error(error.response.data.message)
+        }
+        throw error
+      }
+      return response.data
     }
   }
 })
