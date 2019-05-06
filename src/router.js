@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Register from './views/Register.vue'
 import HeroList from './views/HeroList.vue'
 import HeroDetail from './views/HeroDetail.vue'
+import Forbidden from './views/Forbidden.vue'
 import Admin from './views/Admin.vue'
 import store from './store'
 
@@ -13,6 +14,11 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '/error',
+      name: 'forbidden',
+      component: Forbidden
+    },
     {
       path: '/',
       name: 'home',

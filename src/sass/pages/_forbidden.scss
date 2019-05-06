@@ -1,0 +1,27 @@
+.page-forbidden {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+
+    @include e('image') {
+        position: absolute;
+        left: 100px;
+        top: 0;
+        background-image: url('assets/stop.jpg');
+        background-position: center;
+        background-origin: 50% 50%;
+        
+        background-size: cover;
+
+        width: 400px;
+        height: 900px;
+    }
+
+    @include e('message') {
+        position: absolute;
+        left: 532px;
+        top: 50%;
+        font-weight: bold;
+        font-size: 32px;
+    }
+}
