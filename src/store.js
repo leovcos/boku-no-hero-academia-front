@@ -88,6 +88,19 @@ export default new Vuex.Store({
         throw error
       }
       return response.data
+    },
+    async increaseHeroPower(_, {hero}) {
+      let {id} = hero || {}
+      let response = null
+      try {
+        response = await axios.post(`hero/increase-power/${id}`)
+      } catch (error) {
+        if (error.response && error.response.data && error.response.data.message) {
+          throw new Error(error.response.data.message)
+        }
+        throw error
+      }
+      return response.data
     }
   }
 })

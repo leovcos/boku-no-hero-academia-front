@@ -7,7 +7,7 @@
         </div>
         <div class="HeroDetail__wrapper">
             <div class="HeroDetail__name">
-                {{hero.name}}
+                {{hero.name}} (Poder: {{hero.power}})
             </div>
             <div class="HeroDetail__birthday">
                 {{hero.birthday | date}}

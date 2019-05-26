@@ -6,7 +6,7 @@
         </nav>
 
         <div class="page-hero-list__list">
-          <Hero v-for="(hero, index) in page.content" :key="index" :hero="hero"/>
+          <Hero v-for="(hero, index) in contentOrderedByPower" :key="index" :hero="hero"/>
         </div>
     </div>
 </template>
@@ -26,7 +26,12 @@ export default {
     ...mapGetters({
       page: 'getHeroPage',
       isAdmin: 'userHasAdminAuthority'
-    })
+    }),
+    contentOrderedByPower() {
+      let content = (this.page || {}).content || [] 
+      content.sort((a,b) => a.power > b.power ? -1 : a.power === b.power ? 0 : 1)
+      return content
+    }
   },
   methods: {
     ...mapActions(['loadHeros', 'logoff']),
