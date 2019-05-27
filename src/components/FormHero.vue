@@ -17,7 +17,7 @@
     </div>
     <div class="field">
       <p class="control">
-        <input class="input" type="text" placeholder="URL da imagem" v-model="model.image">
+        <input class="input" required type="text" placeholder="URL da imagem" v-model="model.image">
       </p>
     </div>
     <div class="field">
