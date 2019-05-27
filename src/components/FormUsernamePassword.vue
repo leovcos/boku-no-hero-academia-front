@@ -2,12 +2,12 @@
   <form class="FormLogin" @submit.prevent="$emit('submit', model)">
     <div class="field">
       <p class="control">
-        <input class="input" type="text" placeholder="Usuário" v-model="model.username">
+        <input class="input" required type="text" placeholder="Usuário" v-model="model.username">
       </p>
     </div>
     <div class="field">
       <p class="control">
-        <input class="input" type="password" placeholder="Senha" v-model="model.password">
+        <input class="input" required type="password" placeholder="Senha" v-model="model.password">
       </p>
     </div>
     <div class="field">

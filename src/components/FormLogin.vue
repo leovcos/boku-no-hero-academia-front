@@ -26,6 +26,13 @@ export default {
         await this.login({ credentials: model })
         this.$router.push({ name: 'heroList' })
       } catch (error) {
+        if (error.response) {
+          let i18n = {
+            Unauthorized: 'Login ou senha errado'
+          }
+          this.state.errorMessage = i18n[error.response.data.message] || error.response.data.message
+          return
+        }
         if (error.data) {
           this.state.errorMessage = error.data.message
           return
